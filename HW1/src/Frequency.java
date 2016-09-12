@@ -23,7 +23,9 @@ public class Frequency{
         }
 
         //split list into fragments
-        int arrFragSize = masterList.size()/numThreads;
+        int arrFragSize=0;
+        if(masterList.size() < numThreads){arrFragSize = 1;}
+        else{ arrFragSize = masterList.size()/numThreads;}
 
         ArrayList<ArrayList<Integer>> subLists = new ArrayList<ArrayList<Integer>>();
         for(int i = 0; i < masterList.size(); i+=arrFragSize){
@@ -66,6 +68,8 @@ public class Frequency{
                 e.printStackTrace();
             }
         }
+        threadPool.shutdown();
+
         return result;
     }
 
@@ -97,6 +101,6 @@ public class Frequency{
 
     public static void main(String[] args){
         int[] A = new int[] {1, 1, 3, 2, 5, 1, 4};
-        System.out.println(parallelFreq(1, A, 2));
+        System.out.println(parallelFreq(0, A, 9));
     }
 }
