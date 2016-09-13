@@ -74,9 +74,6 @@ public class Frequency{
     }
 
 
-
-
-
     public static class PFreq implements Callable{
 
         int x;
@@ -101,6 +98,6 @@ public class Frequency{
 
     public static void main(String[] args){
         int[] A = new int[] {1, 1, 3, 2, 5, 1, 4};
-        System.out.println(parallelFreq(0, A, 9));
+        System.out.println(parallelFreq(0, A, 1));
     }
 }
