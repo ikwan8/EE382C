@@ -110,8 +110,7 @@ public class PIncrement{
             int nextNode;
             int totalThreads;
 
-            public PetersonThread(int myNumber,
-                                  int totalThreads) {
+            public PetersonThread(int myNumber, int totalThreads) {
                 this.totalThreads = totalThreads;
 
                 // Update information
@@ -200,11 +199,9 @@ public class PIncrement{
             @Override
             public void run() {
                 int i = 0;
-                while( i < incrementNum)
-                {
+                while( i < incrementNum) {
                     int test = atomicInt.get();
-                    if(atomicInt.compareAndSet(test, test + 1))
-                    {
+                    if(atomicInt.compareAndSet(test, test + 1)) {
                         i++;
                     }
                 }
