@@ -56,8 +56,14 @@ int main()
         lastDigit<<<N/THREADS_PER_BLOCK,THREADS_PER_BLOCK>>>(arr, d_b);
 
         cudaMemcpy(b, d_b, size, cudaMemcpyDeviceToHost);
-        for(i = 0; i < vect.size(); i++){
+        
+	ofstream q1b;
+	q1b.open ("q1b.txt");
+	
+	for(i = 0; i < vect.size(); i++){
                 printf("%d, ", b[i]);
-        }
+        	q1b << b[i] << ",";
+	}
+	q1b.close();
         return 0;
 }
